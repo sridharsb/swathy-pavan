@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swathy &amp; Pavan — theme samples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=Petit+Formal+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{width:1040px; height:1360px; overflow:hidden; background:#efeae4;}
+  body{
+    font-family:"Palatino Linotype", Palatino, Georgia, serif;
+    color:#3d332e;
+    padding:28px 36px 24px;
+  }
+  header{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:18px;}
+  h1{font-family:Cinzel, Palatino, serif; font-size:18px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase;}
+  header p{font-family:"Cormorant Garamond", Georgia, serif; font-style:italic; font-size:16px; color:#7a6a5f;}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:22px 28px;}
+  figure{display:flex; flex-direction:column; align-items:center; gap:10px;}
+  figcaption{text-align:center;}
+  figcaption strong{display:block; font-family:Cinzel, Palatino, serif; font-size:13px; letter-spacing:0.22em; font-weight:500;}
+  figcaption span{display:block; margin-top:2px; font-family:"Cormorant Garamond", Georgia, serif; font-style:italic; font-size:15px; color:#7a6a5f;}
+
+  .phone{
+    width:460px; height:540px; position:relative; overflow:hidden;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:12px;
+  }
+  .kicker{font-family:Cinzel, Palatino, serif; font-size:11px; letter-spacing:0.38em;}
+  .names{font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; font-style:italic; font-size:46px; line-height:0.95;}
+  .names i{display:block; font-family:"Petit Formal Script", cursive; font-style:normal; font-size:26px; margin:4px 0;}
+  .date{font-family:Cinzel, Palatino, serif; font-size:12px; letter-spacing:0.22em;}
+  .tap{font-family:Cinzel, Palatino, serif; font-size:10px; letter-spacing:0.28em; padding:7px 14px; border-radius:999px;}
+
+  /* KANJIVARAM */
+  .kanji{background:#4C1224; color:#F4E6C4;}
+  .kanji .frame{position:absolute; inset:14px; border:1px solid #C6A15A; pointer-events:none;}
+  .kanji .frame::after{content:""; position:absolute; inset:6px; border:1px solid rgba(198,161,90,0.55);}
+  .kanji .seal{
+    width:118px; height:118px; border-radius:50%;
+    border:2px solid #C6A15A;
+    background:radial-gradient(circle at 50% 40%, #6d2438, #3d0e1c);
+    display:grid; place-items:center;
+    box-shadow:0 0 0 7px rgba(198,161,90,0.15);
+  }
+  .kanji .tap{border:1px solid rgba(198,161,90,0.7); color:#F4E6C4;}
+
+  /* MIDNIGHT */
+  .midnight{
+    background:radial-gradient(circle at 50% 28%, #24345c 0%, #10182e 42%, #070b14 100%);
+    color:#F6EBD4;
+  }
+  .star{position:absolute; width:2px; height:2px; background:#F6EBD4; border-radius:50%; opacity:0.85;}
+  .midnight .seal{
+    width:112px; height:112px; border-radius:50%;
+    border:1px solid rgba(246,235,212,0.55);
+    display:grid; place-items:center;
+    box-shadow:0 0 0 14px rgba(246,235,212,0.05), 0 0 40px rgba(232,208,150,0.25);
+  }
+  .midnight .names{font-style:normal; font-family:Cinzel, Palatino, serif; font-size:32px; letter-spacing:0.12em; font-weight:400;}
+  .midnight .names i{font-family:"Petit Formal Script", cursive; letter-spacing:0; font-size:28px; color:#E7D3A1;}
+  .midnight .tap{border:1px solid rgba(231,211,161,0.45);}
+
+  /* JASMINE */
+  .jasmine{background:#F7F4EE; color:#2C3A32;}
+  .jasmine .vine{position:absolute; inset:0; width:100%; height:100%; pointer-events:none;}
+  .jasmine .seal{
+    width:116px; height:116px; border-radius:50%;
+    background:#fff; border:1px solid #C5D0C2;
+    display:grid; place-items:center;
+  }
+  .jasmine .kicker,.jasmine .date{color:#6E7D62; letter-spacing:0.32em;}
+  .jasmine .tap{border:1px solid #C5D0C2; color:#6E7D62;}
+
+  /* MARIGOLD */
+  .marigold{
+    background:linear-gradient(180deg, #FFF8EE 0%, #F8E2C0 100%);
+    color:#7A2E16;
+  }
+  .garland{position:absolute; top:0; left:0; right:0; height:18px; display:flex;}
+  .garland i{flex:1; height:18px;}
+  .garland i:nth-child(3n){background:#E25B2A;}
+  .garland i:nth-child(3n+1){background:#F0B429;}
+  .garland i:nth-child(3n+2){background:#C3362B;}
+  .marigold .seal{
+    width:116px; height:116px; border-radius:50%;
+    background:#fffaf3; border:3px solid #E25B2A;
+    display:grid; place-items:center;
+    box-shadow:0 0 0 6px rgba(240,180,41,0.35);
+  }
+  .marigold .tap{border:1px solid #C3362B; color:#C3362B;}
+  .content{position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:12px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>Theme samples</h1>
+  <p>Swathy &amp; Pavan · 19 and 20 November 2026</p>
+</header>
+<div class="grid">
+  <figure>
+    <div class="phone kanji">
+      <div class="frame"></div>
+      <div class="content">
+        <div class="kicker">YOU ARE INVITED</div>
+        <div class="seal" aria-hidden="true">
+          <svg width="68" height="68" viewBox="0 0 80 80" fill="none">
+            <path d="M40 68c0-12 6-20 6-30 0-6-3-10-6-14-3 4-6 8-6 14 0 10 6 18 6 30z" fill="#E4C98A"/>
+            <path d="M40 52c-12-8-24-6-28 2 10 2 20 0 28-2z" fill="#C6A15A"/>
+            <path d="M40 52c12-8 24-6 28 2-10 2-20 0-28-2z" fill="#C6A15A"/>
+            <path d="M40 44c-8-12-18-14-22-6 8 0 16 2 22 6z" fill="#F4E6C4"/>
+            <path d="M40 44c8-12 18-14 22-6-8 0-16 2-22 6z" fill="#F4E6C4"/>
+            <circle cx="40" cy="16" r="3.5" fill="#F4E6C4"/>
+          </svg>
+        </div>
+        <div class="names">Swathy<i>&amp;</i>Pavan</div>
+        <div class="date">19 &amp; 20 NOVEMBER</div>
+        <div class="tap">TAP TO OPEN</div>
+      </div>
+    </div>
+    <figcaption><strong>KANJIVARAM</strong><span>Deep maroon and antique gold</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="phone midnight">
+      <span class="star" style="top:18%; left:16%;"></span>
+      <span class="star" style="top:12%; left:72%; width:3px; height:3px;"></span>
+      <span class="star" style="top:28%; left:84%;"></span>
+      <span class="star" style="top:70%; left:12%;"></span>
+      <span class="star" style="top:78%; left:80%; width:3px; height:3px;"></span>
+      <span class="star" style="top:40%; left:10%;"></span>
+      <span class="star" style="top:22%; left:48%;"></span>
+      <div class="content">
+        <div class="kicker">YOU ARE INVITED</div>
+        <div class="seal" aria-hidden="true">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <path d="M32 8l3.2 10.2L46 20l-8.6 6.2L40.2 38 32 31.2 23.8 38l2.8-11.8L18 20l10.8-1.8L32 8z" stroke="#F6EBD4" stroke-width="1.2" fill="rgba(246,235,212,0.12)"/>
+            <circle cx="32" cy="46" r="2" fill="#E7D3A1"/>
+          </svg>
+        </div>
+        <div class="names">Swathy<i>&amp;</i>Pavan</div>
+        <div class="date">19 &amp; 20 NOVEMBER</div>
+        <div class="tap">TAP TO OPEN</div>
+      </div>
+    </div>
+    <figcaption><strong>MIDNIGHT</strong><span>Navy, champagne, and starlight</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="phone jasmine">
+      <svg class="vine" viewBox="0 0 460 540" fill="none" aria-hidden="true">
+        <path d="M40 500C40 300 90 80 230 36C370 80 420 300 420 500" stroke="#8FA184" stroke-width="1.2"/>
+        <path d="M70 470C70 310 110 120 230 78C350 120 390 310 390 470" stroke="#C5D0C2" stroke-width="1"/>
+        <path d="M120 150c-16-6-18-24-6-30 8 12 14 20 6 30z" fill="#8FA184"/>
+        <path d="M340 150c16-6 18-24 6-30-8 12-14 20-6 30z" fill="#8FA184"/>
+        <path d="M96 240c-14-4-16-20-6-26 7 10 12 18 6 26z" fill="#C5D0C2"/>
+        <path d="M364 240c14-4 16-20 6-26-7 10-12 18-6 26z" fill="#C5D0C2"/>
+      </svg>
+      <div class="content">
+        <div class="kicker">YOU ARE INVITED</div>
+        <div class="seal" aria-hidden="true">
+          <svg width="66" height="66" viewBox="0 0 80 80" fill="none">
+            <path d="M40 66c0-12 6-20 6-30 0-6-3-10-6-14-3 4-6 8-6 14 0 10 6 18 6 30z" fill="#6E7D62"/>
+            <path d="M40 50c-12-8-22-6-26 2 10 1 18 0 26-2z" fill="#8FA184"/>
+            <path d="M40 50c12-8 22-6 26 2-10 1-18 0-26-2z" fill="#8FA184"/>
+            <path d="M40 42c-8-12-16-14-20-6 8 0 14 2 20 6z" fill="#C5D0C2"/>
+            <path d="M40 42c8-12 16-14 20-6-8 0-14 2-20 6z" fill="#C5D0C2"/>
+            <circle cx="40" cy="16" r="3" fill="#6E7D62"/>
+          </svg>
+        </div>
+        <div class="names">Swathy<i>&amp;</i>Pavan</div>
+        <div class="date">19 &amp; 20 NOVEMBER</div>
+        <div class="tap">TAP TO OPEN</div>
+      </div>
+    </div>
+    <figcaption><strong>JASMINE</strong><span>Ivory, sage, and pearl</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="phone marigold">
+      <div class="garland" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="content">
+        <div class="kicker">YOU ARE INVITED</div>
+        <div class="seal" aria-hidden="true">
+          <svg width="70" height="70" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="10" fill="#F0B429"/>
+            <circle cx="40" cy="40" r="5" fill="#C3362B"/>
+            <ellipse cx="40" cy="18" rx="6" ry="10" fill="#E25B2A"/>
+            <ellipse cx="40" cy="62" rx="6" ry="10" fill="#E25B2A"/>
+            <ellipse cx="18" cy="40" rx="10" ry="6" fill="#F0B429"/>
+            <ellipse cx="62" cy="40" rx="10" ry="6" fill="#F0B429"/>
+            <ellipse cx="24" cy="24" rx="6" ry="10" transform="rotate(-40 24 24)" fill="#C3362B"/>
+            <ellipse cx="56" cy="24" rx="6" ry="10" transform="rotate(40 56 24)" fill="#C3362B"/>
+            <ellipse cx="24" cy="56" rx="6" ry="10" transform="rotate(40 24 56)" fill="#E25B2A"/>
+            <ellipse cx="56" cy="56" rx="6" ry="10" transform="rotate(-40 56 56)" fill="#E25B2A"/>
+          </svg>
+        </div>
+        <div class="names">Swathy<i>&amp;</i>Pavan</div>
+        <div class="date">19 &amp; 20 NOVEMBER</div>
+        <div class="tap">TAP TO OPEN</div>
+      </div>
+    </div>
+    <figcaption><strong>MARIGOLD</strong><span>Saffron, vermillion, and cream</span></figcaption>
+  </figure>
+</div>
+</body>
+</html>

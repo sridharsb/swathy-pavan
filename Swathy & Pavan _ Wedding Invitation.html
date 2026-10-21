@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Swathy &amp; Pavan | Wedding Invitation</title>
+<meta name="description" content="Swathy &amp; Pavan invite you to celebrate their wedding on 19 and 20 November 2026.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Swathy &amp; Pavan | Wedding Invitation">
+<meta property="og:description" content="Together with their families, Swathy &amp; Pavan request the pleasure of your company on 19 and 20 November 2026.">
+<meta property="og:site_name" content="Swathy &amp; Pavan Wedding">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,500;1,500&family=Petit+Formal+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose-deep:#7A4A52;
+    --rose:#96636B;
+    --rose-light:#B58890;
+    --gold:#B99566;
+    --gold-light:#D9BFA0;
+    --gold-pale:#EDDFC9;
+    --ivory:#FBF3EF;
+    --blush:#F6E4E3;
+    --blush-deep:#EFD5D3;
+    --ink:#4A3B35;
+    --ink-soft:#7A6A5F;
+    --sage:#92A183;
+    --sage-deep:#6E7D62;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'EB Garamond', serif;
+    background:var(--ivory);
+    color:var(--ink);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer; border:none; background:none;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  .site{
+    max-width:520px;
+    margin:0 auto;
+    min-height:100vh;
+    position:relative;
+    background:var(--ivory);
+  }
+
+  .label-caps{
+    font-family:'Cinzel', serif;
+    font-size:10px;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .hairline{
+    width:46px;
+    height:1px;
+    background:var(--gold);
+    margin:18px auto;
+    opacity:0.8;
+  }
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  .book-cover{
+    position:fixed; inset:0; z-index:500; overflow:hidden; cursor:pointer;
+  }
+  .book-cover.hidden{ display:none; }
+  .cover-wash{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 50% 38%, rgba(217,191,160,0.32), transparent 46%),
+      linear-gradient(180deg, #8d5a62 0%, #4A3B35 100%);
+  }
+  .cover-scrim{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(122,74,82,0.18), rgba(74,59,53,0.45));
+  }
+  .botanical-arch{ position:absolute; top:6%; left:50%; transform:translateX(-50%); width:82%; max-width:340px; height:74%; pointer-events:none; opacity:0.9; }
+  .botanical-arch svg{ width:100%; height:100%; }
+
+  .petal{
+    position:absolute; top:-8%;
+    width:14px; height:18px;
+    background:linear-gradient(135deg, var(--gold-light), var(--rose-light));
+    border-radius:0 100% 0 100%;
+    opacity:0; z-index:2;
+    animation:petalFall linear infinite;
+  }
+  @keyframes petalFall{
+    0%{ transform:translateY(0) translateX(0) rotate(0deg); opacity:0; }
+    8%{ opacity:0.9; }
+    92%{ opacity:0.6; }
+    100%{ transform:translateY(112vh) translateX(36px) rotate(300deg); opacity:0; }
+  }
+
+  .book-cover.open{ pointer-events:none; }
+  .bow-tap{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:5;
+    display:flex; flex-direction:column; align-items:center; gap:16px;
+    transition:opacity 0.6s ease, transform 0.6s ease;
+    text-align:center;
+  }
+  .book-cover.open .bow-tap{ opacity:0; transform:translate(-50%,-50%) scale(1.2); }
+
+  .crest{
+    width:150px; height:150px; border-radius:50%;
+    border:3px solid var(--gold);
+    background:
+      radial-gradient(circle at 50% 42%, #fff 0%, #F6E4E3 70%);
+    box-shadow:0 0 0 6px rgba(217,191,160,0.25), 0 0 30px rgba(217,191,160,0.5), 0 10px 24px rgba(0,0,0,0.4);
+    display:flex; align-items:center; justify-content:center;
+    animation:medallionPulse 2.6s ease-in-out infinite;
+  }
+  .crest svg{ width:92px; height:92px; }
+  @keyframes medallionPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.05); } }
+  .book-cover.zooming .crest{
+    animation:crestZoomFade 0.9s cubic-bezier(.3,.6,.3,1) forwards;
+  }
+  @keyframes crestZoomFade{ 0%{ transform:scale(1); opacity:1; } 100%{ transform:scale(2.2); opacity:0; } }
+
+  .monogram{
+    width:52px; height:52px; border-radius:50%;
+    border:1px solid var(--gold-light);
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,0.1);
+  }
+  .monogram span{ font-family:'Petit Formal Script', cursive; font-size:20px; color:var(--gold-pale); }
+  .book-cover.zooming .monogram,
+  .book-cover.zooming .cover-names,
+  .book-cover.zooming .cover-text{ opacity:0; transition:opacity 0.3s ease; }
+  .cover-names{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:28px;
+    color:#fff;
+    letter-spacing:0.02em;
+  }
+  .bow-tap .cover-text{ font-family:'Cinzel', serif; font-size:11.5px; letter-spacing:0.26em; color:var(--gold-pale); opacity:0.9; }
+
+  .hero{
+    position:relative; width:100%; min-height:100vh;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    overflow:hidden;
+  }
+  .hero-wash{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse at 50% 28%, rgba(185,149,102,0.38), transparent 52%),
+      linear-gradient(180deg, #7A4A52 0%, #5c4044 48%, #4A3B35 100%);
+  }
+  .hero-scrim{ position:absolute; inset:0; background:linear-gradient(to bottom, rgba(74,59,53,0.05) 0%, rgba(74,59,53,0.12) 40%, rgba(74,59,53,0.55) 72%, rgba(74,59,53,0.88) 100%); }
+  .hero-crest{
+    position:relative; z-index:2;
+    width:188px; height:188px;
+    margin:64px auto 0;
+    border-radius:50%;
+    border:1px solid var(--gold-light);
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,0.08);
+    box-shadow:0 0 0 12px rgba(217,191,160,0.12), 0 16px 36px rgba(0,0,0,0.28);
+  }
+  .hero-crest span{ font-family:'Petit Formal Script', cursive; font-size:52px; color:var(--gold-pale); }
+  .hero-content{ position:relative; z-index:2; padding:22px 30px 40px; text-align:center; }
+  .hero-together{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:var(--blush); opacity:0.9; margin-bottom:12px; }
+  .hero-names{ font-family:'Cormorant Garamond', serif; font-weight:600; font-style:italic; font-size:46px; line-height:1.15; color:#fff; text-shadow:0 2px 20px rgba(0,0,0,0.4); }
+  .hero-amp{ display:block; font-family:'Petit Formal Script', cursive; font-size:26px; color:var(--gold-pale); margin:4px 0; font-style:normal; font-weight:400; }
+  .hero-sub{ margin-top:14px; font-family:'EB Garamond', serif; font-style:italic; font-size:15px; color:var(--blush); opacity:0.9; line-height:1.5; }
+  .hero-date{ margin-top:18px; display:inline-flex; flex-direction:column; gap:4px; padding:10px 22px; border-top:1px solid rgba(217,191,160,0.6); border-bottom:1px solid rgba(217,191,160,0.6); }
+  .hero-date .d{ font-family:'Cinzel', serif; font-size:16px; letter-spacing:0.12em; color:var(--gold-pale); }
+  .hero-date .m{ font-family:'Cinzel', serif; font-size:10px; letter-spacing:0.22em; color:var(--blush); opacity:0.85; }
+  .hero-tap{ margin-top:22px; display:flex; flex-direction:column; align-items:center; gap:8px; font-family:'Cinzel', serif; font-size:10px; letter-spacing:0.22em; color:var(--blush); opacity:0.85; animation:floatY 2.2s ease-in-out infinite; }
+  @keyframes floatY{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(6px);} }
+  .hero-tap svg{ width:15px; height:15px; }
+
+  .savedate{ padding:64px 30px 56px; text-align:center; }
+  .date-pair{ display:flex; align-items:flex-start; justify-content:center; gap:18px; }
+  .savedate .big-date{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:58px;
+    line-height:1;
+    color:var(--rose-deep);
+  }
+  .savedate .big-date sup{ font-size:18px; font-family:'Cinzel', serif; vertical-align:super; color:var(--gold); }
+  .day-name{ margin-top:8px; font-family:'Cinzel', serif; font-size:10px; letter-spacing:0.22em; color:var(--gold); }
+  .date-amp{
+    font-family:'Petit Formal Script', cursive;
+    font-size:28px;
+    color:var(--gold);
+    padding-top:16px;
+  }
+  .savedate .month-year{ margin-top:22px; font-family:'Cinzel', serif; font-size:13px; letter-spacing:0.3em; color:var(--gold); }
+  .savedate p{ margin-top:22px; font-family:'Cormorant Garamond', serif; font-style:italic; font-size:17px; color:var(--ink-soft); line-height:1.7; max-width:340px; margin-left:auto; margin-right:auto; }
+
+  .families-section{ padding:8px 30px 56px; text-align:center; }
+  .blessing{
+    margin-top:8px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:22px;
+    line-height:1.5;
+    color:var(--ink);
+  }
+
+  .countdown-section{ padding:8px 20px 56px; text-align:center; }
+  .countdown-strip{
+    display:flex; align-items:center; justify-content:center;
+    gap:0; margin-top:26px;
+  }
+  .cd-unit{ padding:0 16px; position:relative; display:flex; flex-direction:column; align-items:center; }
+  .cd-unit + .cd-unit::before{
+    content:""; position:absolute; left:0; top:8px; bottom:8px; width:1px; background:var(--gold-light); opacity:0.6;
+  }
+  .cd-figure{ height:64px; width:64px; display:flex; align-items:center; justify-content:center; }
+  .cd-unit .num{ font-family:'Cormorant Garamond', serif; font-weight:600; font-size:34px; color:var(--rose-deep); line-height:1; }
+  .cd-unit .lbl{ display:block; margin-top:10px; font-family:'Cinzel', serif; font-size:8.5px; letter-spacing:0.16em; color:var(--ink-soft); text-transform:uppercase; }
+  .days-badge{
+    position:relative;
+    width:64px; height:64px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    overflow:hidden;
+    background:var(--blush);
+  }
+  .days-reveal{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+  .days-reveal .num{ font-size:22px; }
+  .days-scratch-canvas{ position:absolute; inset:0; width:100%; height:100%; touch-action:none; cursor:pointer; }
+  .scratch-hint{ margin-top:16px; font-family:'Cormorant Garamond', serif; font-style:italic; font-size:12.5px; color:var(--ink-soft); }
+
+  .events-section{ padding:8px 30px 56px; }
+  .timeline{ position:relative; margin-top:30px; padding-left:26px; }
+  .timeline::before{ content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--gold-light); }
+  .tl-item{ position:relative; padding-bottom:38px; text-align:left; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-dot{ position:absolute; left:-26px; top:4px; width:11px; height:11px; border-radius:50%; background:var(--ivory); border:2px solid var(--gold); }
+  .tl-name{ font-family:'Cinzel', serif; font-size:14px; letter-spacing:0.08em; color:var(--rose-deep); margin-bottom:6px; }
+  .tl-date{ font-family:'Cormorant Garamond', serif; font-size:16px; color:var(--ink); font-weight:600; }
+  .tl-time{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14.5px; color:var(--ink-soft); margin-top:2px; }
+  .tl-line{ font-family:'EB Garamond', serif; font-size:15.5px; color:var(--ink); line-height:1.55; margin-top:6px; }
+
+  .venue-section{ padding:8px 30px 56px; text-align:center; }
+  .venue-name{ font-family:'Cormorant Garamond', serif; font-weight:600; font-style:italic; font-size:22px; color:var(--rose-deep); margin-top:22px; margin-bottom:8px; }
+  .venue-addr{ font-family:'EB Garamond', serif; font-size:15.5px; color:var(--ink-soft); line-height:1.7; }
+  .venue-btn{ display:inline-flex; align-items:center; margin-top:18px; background:transparent; color:var(--rose-deep); font-family:'Cinzel', serif; font-size:11px; letter-spacing:0.16em; padding:12px 26px; border:1px solid var(--gold); }
+
+  .footer-note{ text-align:center; padding:10px 20px 40px; font-family:'Cormorant Garamond', serif; font-style:italic; font-size:13px; color:var(--ink-soft); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+</style>
+</head>
+<body>
+<div class="book-cover" id="bookCover" role="button" tabindex="0" aria-label="Tap anywhere to open the invitation">
+  <div class="cover-wash"></div>
+  <div class="cover-scrim"></div>
+  <div class="botanical-arch" aria-hidden="true">
+    <svg viewBox="0 0 280 520" fill="none">
+      <path d="M18 430C18 250 70 70 140 36C210 70 262 250 262 430" stroke="#D9BFA0" stroke-width="1.2" opacity="0.75"></path>
+      <path d="M40 410C40 255 82 96 140 64C198 96 240 255 240 410" stroke="#92A183" stroke-width="1" opacity="0.7"></path>
+      <path d="M78 150c-18-8-22-28-8-36 10 14 16 24 8 36z" fill="#92A183" opacity="0.85"></path>
+      <path d="M202 150c18-8 22-28 8-36-10 14-16 24-8 36z" fill="#92A183" opacity="0.85"></path>
+      <path d="M58 230c-16-6-20-24-8-32 8 12 14 22 8 32z" fill="#D9BFA0" opacity="0.8"></path>
+      <path d="M222 230c16-6 20-24 8-32-8 12-14 22-8 32z" fill="#D9BFA0" opacity="0.8"></path>
+      <path d="M70 320c-14-4-16-20-6-28 7 10 12 18 6 28z" fill="#92A183" opacity="0.7"></path>
+      <path d="M210 320c14-4 16-20 6-28-7 10-12 18-6 28z" fill="#92A183" opacity="0.7"></path>
+      <circle cx="140" cy="28" r="3" fill="#D9BFA0"></circle>
+    </svg>
+  </div>
+  <div class="petal" style="left:10%; animation-duration:7s; animation-delay:0.2s;"></div>
+  <div class="petal" style="left:24%; animation-duration:8.2s; animation-delay:1.4s;"></div>
+  <div class="petal" style="left:40%; animation-duration:6.8s; animation-delay:2.6s;"></div>
+  <div class="petal" style="left:58%; animation-duration:7.6s; animation-delay:0.8s;"></div>
+  <div class="petal" style="left:74%; animation-duration:8.8s; animation-delay:2s;"></div>
+  <div class="petal" style="left:88%; animation-duration:6.4s; animation-delay:1.1s;"></div>
+
+  <div class="bow-tap" id="bowTap">
+    <div class="crest" aria-hidden="true">
+      <svg viewBox="0 0 120 120" fill="none">
+        <path d="M60 96c0-18 8-28 8-42 0-8-4-14-8-18-4 4-8 10-8 18 0 14 8 24 8 42z" fill="#7A4A52" opacity="0.9"></path>
+        <path d="M60 78c-14-10-28-8-34 2 12 2 24-2 34-2z" fill="#B58890"></path>
+        <path d="M60 78c14-10 28-8 34 2-12 2-24-2-34-2z" fill="#B58890"></path>
+        <path d="M60 70c-10-16-26-18-32-8 12-2 24 2 32 8z" fill="#96636B"></path>
+        <path d="M60 70c10-16 26-18 32-8-12-2-24 2-32 8z" fill="#96636B"></path>
+        <path d="M60 62c-6-18-16-28-16-36 6 8 12 18 16 36z" fill="#D9BFA0"></path>
+        <path d="M60 62c6-18 16-28 16-36-6 8-12 18-16 36z" fill="#D9BFA0"></path>
+        <circle cx="60" cy="28" r="5" fill="#B99566"></circle>
+      </svg>
+    </div>
+    <div class="monogram"><span>S&amp;P</span></div>
+    <div class="cover-names">Swathy &amp; Pavan</div>
+    <span class="cover-text">TAP TO OPEN</span>
+  </div>
+</div>
+
+<div class="site">
+  <section class="hero" id="home">
+    <div class="hero-wash"></div>
+    <div class="hero-scrim"></div>
+    <div class="hero-crest"><span>S&amp;P</span></div>
+    <div class="hero-content">
+      <div class="hero-together">Together with their families</div>
+      <h1 class="hero-names">
+        Swathy
+        <span class="hero-amp">&amp;</span>
+        Pavan
+      </h1>
+      <div class="hero-sub">request the pleasure of your company<br>to celebrate our wedding</div>
+      <div class="hero-date">
+        <span class="d">19 &amp; 20 NOVEMBER</span>
+        <span class="m">2 0 2 6</span>
+      </div>
+      <div class="hero-tap">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M12 20l-5-5M12 20l5-5" stroke="#F6E4E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        SCROLL
+      </div>
+    </div>
+  </section>
+
+  <section class="savedate reveal">
+    <span class="label-caps">Save the Dates</span>
+    <div class="hairline"></div>
+    <div class="date-pair">
+      <div>
+        <div class="big-date">19<sup>th</sup></div>
+        <div class="day-name">THURSDAY</div>
+      </div>
+      <div class="date-amp">&amp;</div>
+      <div>
+        <div class="big-date">20<sup>th</sup></div>
+        <div class="day-name">FRIDAY</div>
+      </div>
+    </div>
+    <div class="month-year">NOVEMBER 2026</div>
+    <p>Thursday evening holds the varapooja, janavasam, and reception. On Friday morning, the muhurtham is from 8:30 to 10:00. We would be delighted to have you with us as we begin our forever.</p>
+  </section>
+
+  <section class="families-section reveal">
+    <span class="label-caps">With the Blessings Of</span>
+    <div class="hairline"></div>
+    <div class="blessing">Our parents and families</div>
+  </section>
+
+  <section class="countdown-section reveal">
+    <span class="label-caps">Counting Down</span>
+    <div class="hairline"></div>
+    <div class="countdown-strip">
+      <div class="cd-unit days-unit">
+        <div class="cd-figure">
+          <div class="days-badge" id="daysCell">
+            <div class="days-reveal"><span class="num" id="cd-days">0</span></div>
+            <canvas id="scratchCanvas" class="days-scratch-canvas" width="63" height="63" aria-label="Scratch to reveal the days remaining"></canvas>
+          </div>
+        </div>
+        <span class="lbl">Days</span>
+      </div>
+      <div class="cd-unit"><div class="cd-figure"><span class="num" id="cd-hours">00</span></div><span class="lbl">Hours</span></div>
+      <div class="cd-unit"><div class="cd-figure"><span class="num" id="cd-mins">00</span></div><span class="lbl">Mins</span></div>
+      <div class="cd-unit"><div class="cd-figure"><span class="num" id="cd-secs">00</span></div><span class="lbl">Secs</span></div>
+    </div>
+    <div class="scratch-hint">Scratch the “Days” circle to reveal it</div>
+  </section>
+
+  <section class="events-section reveal" id="events">
+    <div style="text-align:center;">
+      <span class="label-caps">Join Us For</span>
+      <div class="hairline"></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-name">19TH NOVEMBER</div>
+        <div class="tl-date">Thursday evening</div>
+        <div class="tl-line">Varapooja, Janavasam, Nischayathartham</div>
+        <div class="tl-line">Reception from 7:00 p.m.</div>
+        <div class="tl-line">Dinner from 7:30 p.m.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-name">20TH NOVEMBER</div>
+        <div class="tl-date">Friday morning</div>
+        <div class="tl-line">Muhurtham, 8:30 to 10:00 a.m.</div>
+        <div class="tl-line">Veda Sadas, Nagavalli Muhurtham, and Bhojhanam</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venue-section reveal" id="venue">
+    <span class="label-caps">Where To Find Us</span>
+    <div class="hairline"></div>
+    <div class="venue-name">Sri Ragavendra Kalyana Mandapam</div>
+    <div class="venue-addr">20-21 Singarachari Street,<br>Triplicane, Chennai – 600 005</div>
+    <a class="venue-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Ragavendra+Kalyana+Mandapam+20-21+Singarachari+Street+Triplicane+Chennai+600005" target="_blank" rel="noopener">GET DIRECTIONS</a>
+  </section>
+
+  <div class="footer-note">With love, Swathy &amp; Pavan • 19–20.11.2026</div>
+</div>
+
+<script>
+  document.body.style.overflow = 'hidden';
+  var bookCover = document.getElementById('bookCover');
+  var bookOpened = false;
+  function openBook(){
+    if(bookOpened) return;
+    bookOpened = true;
+    bookCover.classList.add('open');
+    bookCover.classList.add('zooming');
+    setTimeout(function(){
+      bookCover.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 900);
+  }
+  bookCover.addEventListener('click', openBook);
+  bookCover.addEventListener('keypress', function(e){ if(e.key==='Enter' || e.key===' ') openBook(); });
+
+  var target = new Date('2026-11-20T08:30:00+05:30').getTime();
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    var now = new Date().getTime();
+    var diff = target - now;
+    if(diff < 0) diff = 0;
+    var days = Math.floor(diff / (1000*60*60*24));
+    var hours = Math.floor((diff / (1000*60*60)) % 24);
+    var mins = Math.floor((diff / (1000*60)) % 60);
+    var secs = Math.floor((diff / 1000) % 60);
+    document.getElementById('cd-days').textContent = days;
+    document.getElementById('cd-hours').textContent = pad(hours);
+    document.getElementById('cd-mins').textContent = pad(mins);
+    document.getElementById('cd-secs').textContent = pad(secs);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  function initScratchCard(){
+    var wrap = document.getElementById('daysCell');
+    var canvas = document.getElementById('scratchCanvas');
+    if(!wrap || !canvas) return;
+    var ctx = canvas.getContext('2d');
+
+    function sizeCanvas(){
+      canvas.width = wrap.clientWidth;
+      canvas.height = wrap.clientHeight;
+      paintScratchLayer();
+    }
+    function paintScratchLayer(){
+      ctx.globalCompositeOperation = 'source-over';
+      var grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      grad.addColorStop(0, '#D9BFA0');
+      grad.addColorStop(1, '#B99566');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    sizeCanvas();
+    window.addEventListener('resize', sizeCanvas);
+
+    var scratching = false;
+    function getPos(e){
+      var rect = canvas.getBoundingClientRect();
+      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return { x: clientX - rect.left, y: clientY - rect.top };
+    }
+    function scratchAt(x, y){
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(x, y, 12, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    function checkCleared(){
+      var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      var total = 0, cleared = 0;
+      for(var i = 3; i < data.length; i += 4 * 6){
+        total++;
+        if(data[i] === 0) cleared++;
+      }
+      if(total && cleared / total > 0.5){
+        canvas.style.transition = 'opacity 0.5s ease';
+        canvas.style.opacity = '0';
+        setTimeout(function(){ canvas.style.display = 'none'; }, 500);
+      }
+    }
+    function start(e){ scratching = true; move(e); }
+    function move(e){
+      if(!scratching) return;
+      e.preventDefault();
+      var p = getPos(e);
+      scratchAt(p.x, p.y);
+    }
+    function end(){
+      if(scratching){ scratching = false; checkCleared(); }
+    }
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', end);
+    canvas.addEventListener('touchstart', start, { passive:false });
+    canvas.addEventListener('touchmove', move, { passive:false });
+    canvas.addEventListener('touchend', end);
+  }
+  initScratchCard();
+
+  var reveals = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold:0.15});
+  reveals.forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
