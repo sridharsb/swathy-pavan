@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Swathy &amp; Pavan | Wedding Invitation</title>
-<meta name="description" content="Swathy &amp; Pavan invite you to celebrate their wedding on 19 and 20 November 2026.">
+<meta name="description" content="Swathy &amp; Pavan invite you to celebrate their wedding on Friday, 20 November 2026.">
 <meta property="og:title" content="Swathy &amp; Pavan | Wedding Invitation">
-<meta property="og:description" content="Together with their families, Swathy &amp; Pavan request the pleasure of your company on 19 and 20 November 2026.">
+<meta property="og:description" content="Together with their families, Swathy &amp; Pavan request the pleasure of your company on 20 November 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,500;1,500&family=Petit+Formal+Script&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
     --sage:#92A183;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%;}
   body{
     font-family:'EB Garamond', serif;
     background:
@@ -34,6 +34,7 @@
     color:var(--ink);
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
+    touch-action:manipulation;
   }
   a{color:inherit; text-decoration:none;}
   button{font-family:inherit; cursor:pointer; border:none; background:none;}
@@ -363,12 +364,12 @@
   .verse{ margin:10px auto 0; max-width:300px; font-size:16px; }
 
   .countdown-section{ padding:36px 16px 28px; text-align:center; position:relative; z-index:5; }
-  .countdown-strip{ display:flex; align-items:flex-start; justify-content:center; margin-top:22px; }
-  .cd-unit{ padding:0 14px; position:relative; display:flex; flex-direction:column; align-items:center; }
+  .countdown-strip{ display:flex; align-items:flex-start; justify-content:center; width:100%; margin-top:22px; }
+  .cd-unit{ flex:1 1 0; min-width:0; padding:0 4px; position:relative; display:flex; flex-direction:column; align-items:center; }
   .cd-unit + .cd-unit::before{
     content:""; position:absolute; left:0; top:10px; bottom:22px; width:1px; background:var(--gold-light);
   }
-  .cd-figure{ height:72px; width:72px; display:grid; place-items:center; }
+  .cd-figure{ height:min(68px, 18vw); width:min(68px, 18vw); display:grid; place-items:center; }
   .cd-unit .num{
     font-family:'Cormorant Garamond', serif; font-weight:600; font-size:36px;
     color:var(--rose-deep); line-height:1;
@@ -378,7 +379,7 @@
     color:var(--ink-soft); text-transform:uppercase;
   }
   .days-badge{
-    position:relative; width:72px; height:72px; border-radius:50%;
+    position:relative; width:min(68px, 18vw); height:min(68px, 18vw); border-radius:50%;
     border:1px solid var(--gold); overflow:hidden;
     background:radial-gradient(circle at 50% 40%, #fff, var(--blush));
     box-shadow:0 8px 18px rgba(122,74,82,0.12);
@@ -430,7 +431,44 @@
     font-size:26px; color:var(--rose-deep);
   }
   .venue-addr{ margin-top:8px; font-size:16px; color:var(--ink-soft); line-height:1.7; font-style:italic; }
-  .venue-btn{ display:inline-flex; align-items:center; margin-top:18px; color:var(--rose-deep); font-family:'Cinzel', serif; font-size:11px; letter-spacing:0.16em; padding:12px 22px; border:1px solid var(--gold); border-radius:999px; }
+  .venue-btn{ display:inline-flex; align-items:center; justify-content:center; min-height:48px; margin-top:18px; color:var(--rose-deep); font-family:'Cinzel', serif; font-size:11px; letter-spacing:0.16em; padding:12px 22px; border:1px solid var(--gold); border-radius:999px; }
+  .cover-names,.hero-names,.tl-line,.venue-name,.venue-addr,.savedate p,.blessing{overflow-wrap:break-word;}
+  .footer-note{padding-bottom:calc(48px + env(safe-area-inset-bottom));}
+  @media (max-width:430px){
+    .cover-kicker{letter-spacing:0.22em; font-size:10px;}
+    .cover-date,.cover-text{letter-spacing:0.16em;}
+    .cover-names{font-size:clamp(30px, 8.6vw, 40px);}
+    .hero{padding-top:max(28px, env(safe-area-inset-top));}
+    .hero-crest{width:min(132px, 36vw); height:min(132px, 36vw);}
+    .hero-crest span{font-size:clamp(22px, 6vw, 28px);}
+    .hero-names{font-size:clamp(38px, 11vw, 52px);}
+    .hero-content{padding-left:18px; padding-right:18px;}
+    .hero-date{padding:10px 14px; max-width:100%;}
+    .hero-date .d{letter-spacing:0.08em; font-size:13px;}
+    .hero-date .m{letter-spacing:0.24em;}
+    .savedate{padding:48px 18px 28px;}
+    .families-section,.venue-section{padding-left:18px; padding-right:18px;}
+    .events-section{padding-left:12px; padding-right:12px;}
+    .timeline{padding-left:16px;}
+    .tl-item{margin-left:8px; padding:14px;}
+    .tl-dot{left:-23px;}
+    .tl-name{letter-spacing:0.06em; font-size:12px;}
+    .countdown-section{padding-left:6px; padding-right:6px;}
+    .cd-unit .lbl{letter-spacing:0.08em; font-size:9px;}
+    .venue-name{font-size:clamp(22px, 6.2vw, 26px);}
+    .month-year{letter-spacing:0.18em;}
+    .day-name{letter-spacing:0.12em;}
+  }
+  @media (max-height:740px){
+    .seal-wrap{width:132px; height:132px;}
+    .ring.r1{width:132px; height:132px;}
+    .ring.r2{width:110px; height:110px;}
+    .crest{width:92px; height:92px;}
+    .crest svg{width:54px; height:54px;}
+    .bow-tap{gap:8px;}
+    .cover-names{font-size:30px;}
+    .monogram{width:44px; height:44px;}
+  }
 
   .footer-note{
     position:relative; z-index:5;
@@ -500,7 +538,7 @@
     </div>
     <div class="monogram"><span>S&amp;P</span></div>
     <div class="cover-names foil">Swathy &amp; Pavan</div>
-    <div class="cover-date">19 &amp; 20 NOVEMBER 2026</div>
+    <div class="cover-date">20 NOVEMBER 2026</div>
     <span class="cover-text">TAP TO OPEN</span>
   </div>
 </div>
@@ -529,7 +567,7 @@
       </h1>
       <div class="hero-sub">request the pleasure of your company<br>to celebrate our wedding</div>
       <div class="hero-date">
-        <span class="d">19 &amp; 20 NOVEMBER</span>
+        <span class="d">20 NOVEMBER</span>
         <span class="m">2026</span>
       </div>
       <div class="hero-tap">
@@ -540,21 +578,16 @@
   </section>
 
   <section class="savedate reveal">
-    <span class="label-caps">Save the Dates</span>
+    <span class="label-caps">Save the Date</span>
     <div class="ornament" aria-hidden="true"><span></span><i></i><span></span></div>
     <div class="date-pair">
-      <div class="date-medallion">
-        <div class="big-date"><span data-count="19">19</span><sup>th</sup></div>
-        <div class="day-name">THURSDAY</div>
-      </div>
-      <div class="date-amp">&amp;</div>
       <div class="date-medallion">
         <div class="big-date"><span data-count="20">20</span><sup>th</sup></div>
         <div class="day-name">FRIDAY</div>
       </div>
     </div>
     <div class="month-year">NOVEMBER 2026</div>
-    <p>Thursday evening holds the varapooja, janavasam, and reception. On Friday morning, the muhurtham is from 8:30 to 10:00. We would be delighted to have you with us as we begin our forever.</p>
+    <p>Our wedding is on Friday, the 20th of November. The muhurtham is from 8:30 to 10:00 in the morning. We would be delighted to have you with us as we begin our forever.</p>
   </section>
 
   <section class="families-section reveal">
@@ -614,6 +647,14 @@
         <div class="tl-line">Muhurtham, 8:30 to 10:00 a.m.</div>
         <div class="tl-line">Veda Sadas, Nagavalli Muhurtham, and Bhojhanam</div>
       </article>
+      <article class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-name">22ND NOVEMBER</div>
+        <div class="tl-date">Sunday, from 8:00 a.m.</div>
+        <div class="tl-line">Satyanarayana Swamy Vratham</div>
+        <div class="tl-line">Usha’s Aravindam, Neriga, Bangalore – 562125</div>
+        <div class="tl-line">Followed by lunch</div>
+      </article>
     </div>
   </section>
 
@@ -630,7 +671,7 @@
   <div class="footer-note">
     We cannot wait to see you there
     <strong>Swathy &amp; Pavan</strong>
-    19–20 November 2026
+    20 November 2026
   </div>
 </div>
 

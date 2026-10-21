@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Swathy &amp; Pavan | Wedding Invitation</title>
-<meta name="description" content="Swathy &amp; Pavan invite you to celebrate their wedding on 19 and 20 November 2026.">
+<meta name="description" content="Swathy &amp; Pavan invite you to celebrate their wedding on Friday, 20 November 2026.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Swathy &amp; Pavan | Wedding Invitation">
-<meta property="og:description" content="Together with their families, Swathy &amp; Pavan request the pleasure of your company on 19 and 20 November 2026.">
+<meta property="og:description" content="Together with their families, Swathy &amp; Pavan request the pleasure of your company on 20 November 2026.">
 <meta property="og:site_name" content="Swathy &amp; Pavan Wedding">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,13 +29,14 @@
     --sage-deep:#6E7D62;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%;}
   body{
     font-family:'EB Garamond', serif;
     background:var(--ivory);
     color:var(--ink);
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
+    touch-action:manipulation;
   }
   img{display:block; max-width:100%;}
   a{color:inherit; text-decoration:none;}
@@ -147,9 +148,10 @@
   .bow-tap .cover-text{ font-family:'Cinzel', serif; font-size:11.5px; letter-spacing:0.26em; color:var(--gold-pale); opacity:0.9; }
 
   .hero{
-    position:relative; width:100%; min-height:100vh;
-    display:flex; flex-direction:column; justify-content:flex-end;
+    position:relative; width:100%; min-height:100vh; min-height:100svh;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
     overflow:hidden;
+    padding:max(24px, env(safe-area-inset-top)) 0 max(20px, env(safe-area-inset-bottom));
   }
   .hero-wash{
     position:absolute; inset:0;
@@ -160,8 +162,8 @@
   .hero-scrim{ position:absolute; inset:0; background:linear-gradient(to bottom, rgba(74,59,53,0.05) 0%, rgba(74,59,53,0.12) 40%, rgba(74,59,53,0.55) 72%, rgba(74,59,53,0.88) 100%); }
   .hero-crest{
     position:relative; z-index:2;
-    width:188px; height:188px;
-    margin:64px auto 0;
+    width:min(160px, 42vw); height:min(160px, 42vw);
+    margin:0 auto;
     border-radius:50%;
     border:1px solid var(--gold-light);
     display:flex; align-items:center; justify-content:center;
@@ -213,19 +215,19 @@
 
   .countdown-section{ padding:8px 20px 56px; text-align:center; }
   .countdown-strip{
-    display:flex; align-items:center; justify-content:center;
-    gap:0; margin-top:26px;
+    display:flex; align-items:flex-start; justify-content:center;
+    width:100%; gap:0; margin-top:26px;
   }
-  .cd-unit{ padding:0 16px; position:relative; display:flex; flex-direction:column; align-items:center; }
+  .cd-unit{ flex:1 1 0; min-width:0; padding:0 4px; position:relative; display:flex; flex-direction:column; align-items:center; }
   .cd-unit + .cd-unit::before{
     content:""; position:absolute; left:0; top:8px; bottom:8px; width:1px; background:var(--gold-light); opacity:0.6;
   }
-  .cd-figure{ height:64px; width:64px; display:flex; align-items:center; justify-content:center; }
+  .cd-figure{ height:min(64px, 18vw); width:min(64px, 18vw); display:flex; align-items:center; justify-content:center; }
   .cd-unit .num{ font-family:'Cormorant Garamond', serif; font-weight:600; font-size:34px; color:var(--rose-deep); line-height:1; }
   .cd-unit .lbl{ display:block; margin-top:10px; font-family:'Cinzel', serif; font-size:8.5px; letter-spacing:0.16em; color:var(--ink-soft); text-transform:uppercase; }
   .days-badge{
     position:relative;
-    width:64px; height:64px;
+    width:min(64px, 18vw); height:min(64px, 18vw);
     border-radius:50%;
     border:1px solid var(--gold);
     overflow:hidden;
@@ -250,7 +252,27 @@
   .venue-section{ padding:8px 30px 56px; text-align:center; }
   .venue-name{ font-family:'Cormorant Garamond', serif; font-weight:600; font-style:italic; font-size:22px; color:var(--rose-deep); margin-top:22px; margin-bottom:8px; }
   .venue-addr{ font-family:'EB Garamond', serif; font-size:15.5px; color:var(--ink-soft); line-height:1.7; }
-  .venue-btn{ display:inline-flex; align-items:center; margin-top:18px; background:transparent; color:var(--rose-deep); font-family:'Cinzel', serif; font-size:11px; letter-spacing:0.16em; padding:12px 26px; border:1px solid var(--gold); }
+  .venue-btn{ display:inline-flex; align-items:center; justify-content:center; min-height:48px; margin-top:18px; background:transparent; color:var(--rose-deep); font-family:'Cinzel', serif; font-size:11px; letter-spacing:0.16em; padding:12px 26px; border:1px solid var(--gold); }
+  .hero-names,.tl-line,.venue-name,.venue-addr,.savedate p,.blessing{overflow-wrap:break-word;}
+  .footer-note{padding-bottom:calc(40px + env(safe-area-inset-bottom));}
+  @media (max-width:430px){
+    .hero-names{font-size:clamp(36px, 11vw, 46px);}
+    .hero-content{padding:16px 18px 8px;}
+    .hero-date .d{letter-spacing:0.06em; font-size:14px;}
+    .savedate{padding:48px 18px 36px;}
+    .events-section,.venue-section,.families-section{padding-left:16px; padding-right:16px;}
+    .timeline{padding-left:18px;}
+    .tl-name{letter-spacing:0.04em;}
+    .countdown-section{padding-left:8px; padding-right:8px;}
+    .cd-unit .lbl{letter-spacing:0.06em;}
+    .month-year{letter-spacing:0.16em;}
+  }
+  @media (max-height:740px){
+    .seal-wrap,.crest{width:120px; height:120px;}
+    .crest svg{width:72px; height:72px;}
+    .bow-tap{gap:10px;}
+    .cover-names{font-size:30px;}
+  }
 
   .footer-note{ text-align:center; padding:10px 20px 40px; font-family:'Cormorant Garamond', serif; font-style:italic; font-size:13px; color:var(--ink-soft); }
   a:focus-visible, button:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
@@ -313,7 +335,7 @@
       </h1>
       <div class="hero-sub">request the pleasure of your company<br>to celebrate our wedding</div>
       <div class="hero-date">
-        <span class="d">19 &amp; 20 NOVEMBER</span>
+        <span class="d">20 NOVEMBER</span>
         <span class="m">2 0 2 6</span>
       </div>
       <div class="hero-tap">
@@ -324,21 +346,16 @@
   </section>
 
   <section class="savedate reveal">
-    <span class="label-caps">Save the Dates</span>
+    <span class="label-caps">Save the Date</span>
     <div class="hairline"></div>
     <div class="date-pair">
-      <div>
-        <div class="big-date">19<sup>th</sup></div>
-        <div class="day-name">THURSDAY</div>
-      </div>
-      <div class="date-amp">&amp;</div>
       <div>
         <div class="big-date">20<sup>th</sup></div>
         <div class="day-name">FRIDAY</div>
       </div>
     </div>
     <div class="month-year">NOVEMBER 2026</div>
-    <p>Thursday evening holds the varapooja, janavasam, and reception. On Friday morning, the muhurtham is from 8:30 to 10:00. We would be delighted to have you with us as we begin our forever.</p>
+    <p>Our wedding is on Friday, the 20th of November. The muhurtham is from 8:30 to 10:00 in the morning. We would be delighted to have you with us as we begin our forever.</p>
   </section>
 
   <section class="families-section reveal">
@@ -388,6 +405,14 @@
         <div class="tl-line">Muhurtham, 8:30 to 10:00 a.m.</div>
         <div class="tl-line">Veda Sadas, Nagavalli Muhurtham, and Bhojhanam</div>
       </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-name">22ND NOVEMBER</div>
+        <div class="tl-date">Sunday, from 8:00 a.m.</div>
+        <div class="tl-line">Satyanarayana Swamy Vratham</div>
+        <div class="tl-line">Usha’s Aravindam, Neriga, Bangalore – 562125</div>
+        <div class="tl-line">Followed by lunch</div>
+      </div>
     </div>
   </section>
 
@@ -399,7 +424,7 @@
     <a class="venue-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Ragavendra+Kalyana+Mandapam+20-21+Singarachari+Street+Triplicane+Chennai+600005" target="_blank" rel="noopener">GET DIRECTIONS</a>
   </section>
 
-  <div class="footer-note">With love, Swathy &amp; Pavan • 19–20.11.2026</div>
+  <div class="footer-note">With love, Swathy &amp; Pavan • 20.11.2026</div>
 </div>
 
 <script>
