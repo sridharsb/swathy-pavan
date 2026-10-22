@@ -100,157 +100,66 @@
   /* ========== COVER ========== */
   .book-cover{
     position:fixed; inset:0; z-index:500; overflow:hidden; cursor:pointer;
-    background:#3e2d2a;
+    background:#efe7e0;
+    display:flex; align-items:center; justify-content:center;
+    padding:max(18px, env(safe-area-inset-top)) 18px max(18px, env(safe-area-inset-bottom));
+    transition:opacity 0.7s ease;
   }
   .book-cover.hidden{ display:none; }
-  .cover-wash{
-    position:absolute; inset:0;
-    background:
-      radial-gradient(circle at 50% 36%, rgba(246,235,215,0.28), transparent 42%),
-      radial-gradient(circle at 50% 110%, rgba(74,59,53,0.45), transparent 50%),
-      linear-gradient(180deg, #8a5560 0%, #5c3a40 46%, #3a2c2a 100%);
+  .book-cover.opening{ opacity:0; }
+  .cover-card{
+    position:relative;
+    width:100%; max-width:420px; height:100%; max-height:820px;
+    background:#f7f1ea;
+    color:#4a3b35;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:48px 28px;
   }
-  .cover-wash::after{
+  .cover-card::before{
     content:"";
-    position:absolute; inset:0;
-    background-image:radial-gradient(rgba(255,248,236,0.28) 0.6px, transparent 0.6px);
-    background-size:3px 3px;
-    opacity:0.25;
-    mix-blend-mode:soft-light;
+    position:absolute; inset:18px;
+    border:1px solid rgba(185,149,102,0.45);
+    pointer-events:none;
   }
-  .glow-orb{
-    position:absolute; border-radius:50%; filter:blur(30px); opacity:0.55;
-    animation:drift 9s ease-in-out infinite;
-  }
-  .glow-orb.a{ width:220px; height:220px; background:#c6a36a; top:18%; left:50%; transform:translateX(-50%); }
-  .glow-orb.b{ width:140px; height:140px; background:#7a4a52; bottom:10%; left:8%; animation-delay:-3s; }
-  .glow-orb.c{ width:120px; height:120px; background:#e4cfa8; bottom:18%; right:6%; animation-delay:-5s; }
-  @keyframes drift{
-    0%,100%{ transform:translate3d(0,0,0) scale(1); }
-    50%{ transform:translate3d(0,-16px,0) scale(1.08); }
-  }
-  .glow-orb.a{ animation-name:driftA; }
-  @keyframes driftA{
-    0%,100%{ transform:translateX(-50%) scale(1); }
-    50%{ transform:translateX(-50%) translateY(-18px) scale(1.1); }
-  }
-
-  .botanical-arch{
-    position:absolute; top:4%; left:50%; transform:translateX(-50%);
-    width:88%; max-width:380px; height:78%; pointer-events:none;
-  }
-  .botanical-arch svg{ width:100%; height:100%; }
-  .arch-line{
-    stroke-dasharray:820;
-    stroke-dashoffset:820;
-    animation:draw 2.4s ease forwards;
-  }
-  .arch-line.delay{ animation-delay:0.25s; }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
-
-  .mote{
-    position:absolute; width:3px; height:3px; border-radius:50%;
-    background:var(--gold-pale); opacity:0;
-    box-shadow:0 0 8px rgba(246,235,215,0.9);
-    animation:mote 7s ease-in-out infinite;
-  }
-  @keyframes mote{
-    0%{ transform:translateY(20px); opacity:0; }
-    15%{ opacity:0.9; }
-    100%{ transform:translateY(-90px); opacity:0; }
-  }
-  .petal{
-    position:absolute; top:-8%; width:12px; height:16px; z-index:2;
-    background:linear-gradient(135deg, #f6ebd7, #c48990);
-    border-radius:0 100% 0 100%;
-    opacity:0;
-    animation:petalFall linear infinite;
-  }
-  @keyframes petalFall{
-    0%{ transform:translateY(0) translateX(0) rotate(0deg); opacity:0; }
-    8%{ opacity:0.85; }
-    100%{ transform:translateY(110vh) translateX(28px) rotate(280deg); opacity:0; }
-  }
-
-  .bow-tap{
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-46%); z-index:5;
-    display:flex; flex-direction:column; align-items:center; gap:14px;
-    text-align:center; width:min(86vw, 360px);
-    transition:opacity 0.55s ease, transform 0.7s ease;
-  }
-  .book-cover.opening .bow-tap{ opacity:0; transform:translate(-50%,-46%) scale(1.18); }
   .cover-kicker{
-    font-family:'Cinzel', serif; font-size:11px; letter-spacing:0.42em;
-    color:var(--gold-pale);
+    font-family:'Cinzel', serif;
+    font-size:11px; letter-spacing:0.34em;
+    color:#8c6a3d;
+    margin-bottom:36px;
   }
-  .seal-wrap{ position:relative; width:196px; height:196px; display:grid; place-items:center; }
-  .ring{
-    position:absolute; border-radius:50%; border:1px solid rgba(228,207,168,0.55);
-    animation:spin 22s linear infinite;
-  }
-  .ring.r1{ width:196px; height:196px; border-style:dashed; animation-duration:36s; }
-  .ring.r2{ width:168px; height:168px; animation-direction:reverse; animation-duration:26s; }
-  .ring.r2::after, .ring.r1::after{
-    content:""; position:absolute; width:6px; height:6px; border-radius:50%;
-    background:var(--gold-pale); top:-3px; left:50%; box-shadow:0 0 10px #f6ebd7;
-  }
-  @keyframes spin{ to{ transform:rotate(360deg); } }
-  .crest{
-    width:132px; height:132px; border-radius:50%;
-    border:3px solid var(--gold);
-    background:radial-gradient(circle at 50% 38%, #fff 0%, #f6e4e3 72%);
-    box-shadow:
-      0 0 0 8px rgba(228,207,168,0.18),
-      0 0 40px rgba(246,235,215,0.55),
-      0 16px 30px rgba(0,0,0,0.35);
-    display:grid; place-items:center;
-    animation:medallionPulse 2.8s ease-in-out infinite;
-    position:relative; z-index:1;
-  }
-  .crest svg{ width:78px; height:78px; }
-  @keyframes medallionPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.045); } }
-  .book-cover.opening .crest{ animation:crestZoom 0.85s cubic-bezier(.3,.6,.3,1) forwards; }
-  @keyframes crestZoom{ to{ transform:scale(2.4); opacity:0; } }
-  .book-cover.opening::after{
-    content:""; position:absolute; inset:0; z-index:6; pointer-events:none;
-    background:radial-gradient(circle at 50% 42%, rgba(255,248,236,0.92), rgba(255,248,236,0) 58%);
-    animation:flash 0.9s ease forwards;
-  }
-  @keyframes flash{ 0%{ opacity:0; } 30%{ opacity:1; } 100%{ opacity:0; } }
-
-  .monogram{
-    width:58px; height:58px; border-radius:50%;
-    border:1px solid rgba(246,235,215,0.7);
-    display:grid; place-items:center;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(4px);
-  }
-  .monogram span{ font-family:'Cinzel Decorative', serif; font-size:13px; color:var(--gold-pale); letter-spacing:0.04em; }
   .cover-names{
     font-family:'Cormorant Garamond', serif;
-    font-style:italic; font-weight:600; font-size:40px; line-height:1;
-    filter:drop-shadow(0 8px 18px rgba(0,0,0,0.25));
+    font-style:italic; font-weight:500;
+    font-size:clamp(48px, 15vw, 64px); line-height:0.9;
+    color:#5c3d42;
   }
+  .cover-amp{
+    display:block;
+    font-family:'Petit Formal Script', cursive;
+    font-style:normal;
+    font-size:clamp(28px, 8vw, 34px);
+    color:#b99566;
+    margin:10px 0 8px;
+  }
+  .cover-rule{ width:42px; height:1px; background:#b99566; margin:28px auto 18px; }
   .cover-date{
-    font-family:'Cinzel', serif; font-size:11px; letter-spacing:0.28em; color:var(--gold-pale);
+    font-family:'Cinzel', serif;
+    font-size:12px; letter-spacing:0.22em;
+    color:#8c6a3d;
+  }
+  .cover-day{
+    margin-top:8px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic; font-size:18px;
+    color:#7a6a5f;
   }
   .cover-text{
-    font-family:'Cinzel', serif; font-size:11px; letter-spacing:0.34em; color:var(--gold-pale);
-    padding:8px 16px; border-radius:999px;
-    border:1px solid rgba(228,207,168,0.45);
-    animation:tapPulse 2.2s ease-in-out infinite;
+    position:absolute; bottom:44px; left:0; right:0;
+    font-family:'Cinzel', serif;
+    font-size:10px; letter-spacing:0.28em;
+    color:#b99566;
   }
-  @keyframes tapPulse{
-    0%,100%{ box-shadow:0 0 0 0 rgba(246,235,215,0.25); }
-    50%{ box-shadow:0 0 0 8px rgba(246,235,215,0); }
-  }
-  .burst{
-    position:absolute; left:50%; top:46%; width:12px; height:16px; margin:-8px 0 0 -6px; z-index:6;
-    background:linear-gradient(135deg, #fff6e8, #e7b4b4);
-    border-radius:0 100% 0 100%;
-    animation:burst 0.95s ease-out forwards;
-  }
-  @keyframes burst{ to{ transform:translate(var(--dx), var(--dy)) rotate(var(--rot)); opacity:0; } }
 
   /* ========== HERO ========== */
   .hero{
@@ -435,9 +344,8 @@
   .cover-names,.hero-names,.tl-line,.venue-name,.venue-addr,.savedate p,.blessing{overflow-wrap:break-word;}
   .footer-note{padding-bottom:calc(48px + env(safe-area-inset-bottom));}
   @media (max-width:430px){
-    .cover-kicker{letter-spacing:0.22em; font-size:10px;}
-    .cover-date,.cover-text{letter-spacing:0.16em;}
-    .cover-names{font-size:clamp(30px, 8.6vw, 40px);}
+    .cover-kicker{letter-spacing:0.24em; margin-bottom:28px;}
+    .cover-date{letter-spacing:0.16em;}
     .hero{padding-top:max(28px, env(safe-area-inset-top));}
     .hero-crest{width:min(132px, 36vw); height:min(132px, 36vw);}
     .hero-crest span{font-size:clamp(22px, 6vw, 28px);}
@@ -459,15 +367,11 @@
     .month-year{letter-spacing:0.18em;}
     .day-name{letter-spacing:0.12em;}
   }
-  @media (max-height:740px){
-    .seal-wrap{width:132px; height:132px;}
-    .ring.r1{width:132px; height:132px;}
-    .ring.r2{width:110px; height:110px;}
-    .crest{width:92px; height:92px;}
-    .crest svg{width:54px; height:54px;}
-    .bow-tap{gap:8px;}
-    .cover-names{font-size:30px;}
-    .monogram{width:44px; height:44px;}
+  @media (max-height:640px){
+    .cover-kicker{margin-bottom:20px;}
+    .cover-names{font-size:44px;}
+    .cover-rule{margin:18px auto 12px;}
+    .cover-text{bottom:32px;}
   }
 
   .footer-note{
@@ -487,73 +391,18 @@
 <div class="scroll-gold" id="scrollGold"></div>
 
 <div class="book-cover" id="bookCover" role="button" tabindex="0" aria-label="Tap anywhere to open the invitation">
-  <div class="cover-wash"></div>
-  <div class="glow-orb a"></div>
-  <div class="glow-orb b"></div>
-  <div class="glow-orb c"></div>
-  <div class="botanical-arch" aria-hidden="true">
-    <svg viewBox="0 0 280 560" fill="none">
-      <path class="arch-line" d="M24 470C24 270 72 78 140 34C208 78 256 270 256 470" stroke="#F6EBD7" stroke-width="1.15"></path>
-      <path class="arch-line delay" d="M46 450C46 280 86 104 140 66C194 104 234 280 234 450" stroke="#92A183" stroke-width="1" opacity="0.85"></path>
-      <path d="M86 168c-20-8-24-30-8-38 12 14 18 26 8 38z" fill="#C5D2B8"></path>
-      <path d="M194 168c20-8 24-30 8-38-12 14-18 26-8 38z" fill="#C5D2B8"></path>
-      <path d="M64 248c-16-6-20-26-8-34 10 12 16 22 8 34z" fill="#E4CFA8"></path>
-      <path d="M216 248c16-6 20-26 8-34-10 12-16 22-8 34z" fill="#E4CFA8"></path>
-      <path d="M74 338c-14-4-16-22-6-30 8 10 12 20 6 30z" fill="#C5D2B8" opacity="0.9"></path>
-      <path d="M206 338c14-4 16-22 6-30-8 10-12 20-6 30z" fill="#C5D2B8" opacity="0.9"></path>
-      <circle cx="140" cy="26" r="3.2" fill="#F6EBD7"></circle>
-    </svg>
-  </div>
-  <div class="mote" style="left:18%; top:30%; animation-delay:0.2s;"></div>
-  <div class="mote" style="left:78%; top:26%; animation-delay:1.4s;"></div>
-  <div class="mote" style="left:12%; top:58%; animation-delay:2.1s;"></div>
-  <div class="mote" style="left:84%; top:62%; animation-delay:0.8s;"></div>
-  <div class="mote" style="left:30%; top:72%; animation-delay:2.8s;"></div>
-  <div class="mote" style="left:68%; top:76%; animation-delay:1.8s;"></div>
-  <div class="petal" style="left:8%; animation-duration:8s; animation-delay:.2s;"></div>
-  <div class="petal" style="left:22%; animation-duration:9s; animation-delay:1.6s;"></div>
-  <div class="petal" style="left:38%; animation-duration:7.4s; animation-delay:2.4s;"></div>
-  <div class="petal" style="left:56%; animation-duration:8.6s; animation-delay:.9s;"></div>
-  <div class="petal" style="left:72%; animation-duration:9.4s; animation-delay:2s;"></div>
-  <div class="petal" style="left:88%; animation-duration:7s; animation-delay:1.2s;"></div>
-
-  <div class="bow-tap">
+  <div class="cover-card">
     <div class="cover-kicker">YOU ARE INVITED</div>
-    <div class="seal-wrap">
-      <div class="ring r1"></div>
-      <div class="ring r2"></div>
-      <div class="crest" aria-hidden="true">
-        <svg viewBox="0 0 120 120" fill="none">
-          <path d="M60 98c0-18 8-28 8-42 0-8-4-14-8-18-4 4-8 10-8 18 0 14 8 24 8 42z" fill="#7A4A52"></path>
-          <path d="M60 78c-16-12-32-8-38 4 14 1 26-2 38-4z" fill="#B58890"></path>
-          <path d="M60 78c16-12 32-8 38 4-14 1-26-2-38-4z" fill="#B58890"></path>
-          <path d="M60 68c-12-18-30-20-36-8 14-2 26 2 36 8z" fill="#96636B"></path>
-          <path d="M60 68c12-18 30-20 36-8-14-2-26 2-36 8z" fill="#96636B"></path>
-          <path d="M60 58c-8-20-18-30-18-40 8 10 14 22 18 40z" fill="#E4CFA8"></path>
-          <path d="M60 58c8-20 18-30 18-40-8 10-14 22-18 40z" fill="#E4CFA8"></path>
-          <circle cx="60" cy="22" r="5" fill="#C6A36A"></circle>
-          <circle cx="60" cy="22" r="2" fill="#FFF6E4"></circle>
-        </svg>
-      </div>
-    </div>
-    <div class="monogram"><span>S&amp;P</span></div>
-    <div class="cover-names foil">Swathy &amp; Pavan</div>
+    <div class="cover-names">Swathy<span class="cover-amp">&amp;</span>Pavan</div>
+    <div class="cover-rule"></div>
     <div class="cover-date">20 NOVEMBER 2026</div>
-    <span class="cover-text">TAP TO OPEN</span>
+    <div class="cover-day">Friday</div>
+    <div class="cover-text">TAP TO OPEN</div>
   </div>
 </div>
 
 <div class="site" id="site">
   <section class="hero" id="home">
-    <svg class="hero-mark" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-      <circle cx="100" cy="100" r="78" stroke="#F6EBD7" stroke-width="0.6"></circle>
-      <circle cx="100" cy="100" r="62" stroke="#F6EBD7" stroke-width="0.4"></circle>
-      <path d="M100 150c0-22 10-34 10-52 0-10-5-16-10-22-5 6-10 12-10 22 0 18 10 30 10 52z" fill="#F6EBD7"></path>
-      <path d="M100 128c-18-12-36-8-42 4 16 2 30-2 42-4z" fill="#F6EBD7"></path>
-      <path d="M100 128c18-12 36-8 42 4-16 2-30-2-42-4z" fill="#F6EBD7"></path>
-      <path d="M100 116c-12-18-28-22-34-8 14-2 24 2 34 8z" fill="#F6EBD7"></path>
-      <path d="M100 116c12-18 28-22 34-8-14-2-24 2-34 8z" fill="#F6EBD7"></path>
-    </svg>
     <div class="hero-frame"></div>
     <span class="corner tl"></span><span class="corner tr"></span>
     <span class="corner bl"></span><span class="corner br"></span>
@@ -682,30 +531,16 @@
   var bookOpened = false;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function burst(){
-    if(reduceMotion) return;
-    for(var i = 0; i < 16; i++){
-      var p = document.createElement('div');
-      p.className = 'burst';
-      var angle = (Math.PI * 2 * i) / 16;
-      var dist = 90 + (i % 4) * 28;
-      p.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
-      p.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
-      p.style.setProperty('--rot', (i * 40) + 'deg');
-      bookCover.appendChild(p);
-    }
-  }
   function openBook(){
     if(bookOpened) return;
     bookOpened = true;
     document.body.classList.add('opened');
     bookCover.classList.add('opening');
     site.classList.add('revealed');
-    burst();
     setTimeout(function(){
       bookCover.classList.add('hidden');
       document.body.style.overflow = '';
-    }, 880);
+    }, 700);
   }
   bookCover.addEventListener('click', openBook);
   bookCover.addEventListener('keypress', function(e){ if(e.key==='Enter' || e.key===' ') openBook(); });
