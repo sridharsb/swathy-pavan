@@ -761,6 +761,8 @@
       }
     });
   }
+
+  document.querySelectorAll('.portrait-frame img, .closing img').forEach(function(img){
     function show(){ img.classList.add('is-in'); }
     if(img.complete && img.naturalWidth) show();
     else img.addEventListener('load', show);
