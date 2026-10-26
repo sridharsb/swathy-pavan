@@ -6,7 +6,7 @@
 <title>Swathy &amp; Pavan | Wedding Invitation</title>
 <meta name="description" content="Swathy &amp; Pavan invite you to celebrate their wedding on Friday, 20 November 2026.">
 <meta property="og:title" content="Swathy &amp; Pavan | Wedding Invitation">
-<meta property="og:description" content="Together with their families, Swathy &amp; Pavan request the pleasure of your company on 20 November 2026.">
+<meta property="og:description" content="Together with our families, Swathy &amp; Pavan request the pleasure of your company on 20 November 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,500;1,500&family=Petit+Formal+Script&display=swap" rel="stylesheet">
@@ -244,79 +244,27 @@
   @keyframes rise{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:none; } }
 
   /* ========== SECTIONS ========== */
-  .portrait-plate{ padding:32px 22px 0; position:relative; z-index:5; }
-  .sketch-frame{
-    position:relative;
+  .portrait-plate{ padding:28px 22px 0; position:relative; z-index:5; }
+  .portrait-frame{
     margin:0;
-    padding:10px;
-    background:
-      linear-gradient(180deg, rgba(255,250,246,0.4), transparent 18%),
-      #fffaf6;
-    border:1px solid rgba(185,149,102,0.6);
-    box-shadow:0 18px 40px rgba(122,74,82,0.08);
-  }
-  .sketch-frame::before,
-  .sketch-frame::after{
-    content:"";
-    position:absolute;
-    width:22px; height:22px;
-    border:1.5px solid #b99566;
-    pointer-events:none;
-    z-index:3;
-  }
-  .sketch-frame::before{ top:6px; left:6px; border-right:0; border-bottom:0; }
-  .sketch-frame::after{ right:6px; bottom:6px; border-left:0; border-top:0; }
-  .sketch-stack{ position:relative; overflow:hidden; background:#f4ece4; }
-  .sketch-stack .sketch-color{
-    display:block;
-    width:100%;
-    height:64vh;
-    max-height:540px;
-    object-fit:cover;
-    object-position:center 8%;
-  }
-  .sketch-line{
-    position:absolute;
-    inset:0;
-    background:#f6efe6;
-    transition:opacity 0.8s ease;
-  }
-  .sketch-line img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 8%;
-  }
-  .sketch-gray{ filter:grayscale(1) contrast(1.2) brightness(1.05); }
-  .sketch-dodge{
-    filter:grayscale(1) invert(1) blur(1.6px) contrast(1.4);
-    mix-blend-mode:color-dodge;
-  }
-  .sketch-line::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:#f3e2d2;
-    mix-blend-mode:multiply;
-    pointer-events:none;
-  }
-  .sketch-frame.show-color .sketch-line{ opacity:0; }
-  .sketch-toggle{
-    display:block;
-    margin:14px auto 0;
-    min-height:44px;
-    padding:10px 18px;
-    border:1px solid rgba(185,149,102,0.85);
-    border-radius:999px;
+    padding:8px 8px 0;
     background:#fffaf6;
-    color:#7a4a52;
-    font-family:'Cinzel', serif;
-    font-size:9px;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
+    border:1px solid rgba(185,149,102,0.55);
+    border-bottom:0;
+    overflow:hidden;
   }
+  .portrait-frame img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:68vh;
+    object-fit:cover;
+    object-position:center bottom;
+    opacity:0;
+    transform:translateY(16px);
+  }
+  .portrait-frame img.is-in{ animation:photoIn 0.9s ease forwards; }
+  @keyframes photoIn{ to{ opacity:1; transform:none; } }
   .closing{ padding:36px 22px 4px; position:relative; z-index:5; }
   .closing figure{
     margin:0;
@@ -337,10 +285,26 @@
   .closing.in img{ animation:settle 1.6s ease both; }
   @keyframes settle{ from{ transform:scale(1.08); } to{ transform:scale(1); } }
   @media (prefers-reduced-motion: reduce){
-    .sketch-line{ transition:none; }
+    .portrait-frame img{ opacity:1; transform:none; animation:none; }
+    .music-disc.playing{ animation:none; }
     .closing img, .closing.in img{ animation:none; transform:none; }
   }
-  .savedate{ padding:36px 28px 36px; text-align:center; position:relative; z-index:5; }
+  .music-disc{
+    position:fixed;
+    top:max(12px, env(safe-area-inset-top));
+    right:max(12px, calc(50vw - 248px));
+    z-index:600;
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    border:1.5px solid #e4cfa8;
+    box-shadow:0 8px 18px rgba(74,59,53,0.22), inset 0 0 0 5px #7a4a52, inset 0 0 0 6px #c6a36a;
+    background:
+      radial-gradient(circle at 50% 50%, #f6ebd7 0 5px, #c6a36a 6px 7px, transparent 8px),
+      repeating-radial-gradient(circle at 50% 50%, #5c3d42 0 1px, #7a4a52 2px 3px);
+  }
+  .music-disc.playing{ animation:spinDisc 4.8s linear infinite; }
+  @keyframes spinDisc{ to{ transform:rotate(360deg); } }
   .date-pair{ display:flex; align-items:center; justify-content:center; gap:14px; margin-top:8px; }
   .date-medallion{
     width:124px; height:124px; border-radius:50%;
@@ -451,9 +415,10 @@
     .hero-date .d{letter-spacing:0.08em; font-size:13px;}
     .hero-date .m{letter-spacing:0.24em;}
     .portrait-plate,.closing{padding-left:16px; padding-right:16px;}
-    .sketch-stack .sketch-color,.closing img{height:min(58vh, 520px);}
-    .sketch-toggle{letter-spacing:0.1em; font-size:10px;}
-    .savedate{padding:28px 18px 28px;}
+    .music-disc{top:max(10px, env(safe-area-inset-top)); right:max(10px, env(safe-area-inset-right)); width:44px; height:44px;}
+    .portrait-frame img{max-height:62vh; object-position:center bottom;}
+    .closing img{height:min(58vh, 520px);}
+    .savedate{padding:8px 18px 28px;}
     .families-section,.venue-section{padding-left:18px; padding-right:18px;}
     .events-section{padding-left:12px; padding-right:12px;}
     .timeline{padding-left:16px;}
@@ -487,6 +452,8 @@
 </style>
 </head>
 <body>
+<button class="music-disc" id="musicDisc" type="button" aria-label="Play music"></button>
+<audio id="inviteAudio" src="audio/song.mp3" preload="metadata" loop></audio>
 <div class="scroll-gold" id="scrollGold"></div>
 
 <div class="book-cover" id="bookCover" role="button" tabindex="0" aria-label="Tap anywhere to open the invitation">
@@ -507,7 +474,7 @@
     <span class="corner bl"></span><span class="corner br"></span>
     <div class="hero-crest"><span class="foil">S&amp;P</span></div>
     <div class="hero-content">
-      <div class="hero-together">Together with their families</div>
+      <div class="hero-together">Together with our families</div>
       <h1 class="hero-names">
         <span class="foil">Swathy</span>
         <span class="hero-amp foil">&amp;</span>
@@ -526,16 +493,9 @@
   </section>
 
   <section class="portrait-plate reveal" aria-label="Swathy and Pavan">
-    <figure class="sketch-frame" id="sketchFrame">
-      <div class="sketch-stack">
-        <img class="sketch-color" src="photos/portrait.jpg" alt="Swathy and Pavan in a formal portrait">
-        <div class="sketch-line">
-          <img class="sketch-gray" src="photos/portrait.jpg" alt="">
-          <img class="sketch-dodge" src="photos/portrait.jpg" alt="">
-        </div>
-      </div>
+    <figure class="portrait-frame">
+      <img src="photos/couple.png" alt="Swathy and Pavan looking down together">
     </figure>
-    <button type="button" class="sketch-toggle" id="sketchToggle">See the colour</button>
   </section>
 
   <section class="savedate reveal">
@@ -611,10 +571,14 @@
       </article>
       <article class="tl-item">
         <div class="tl-dot"></div>
+        <svg class="tl-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <circle cx="14" cy="14" r="4" stroke="#8C6A3D" stroke-width="1.2"></circle>
+          <path d="M14 4v3M14 21v3M4 14h3M21 14h3M6.8 6.8l2 2M19.2 19.2l2 2M21.2 6.8l-2 2M8.8 19.2l-2 2" stroke="#C6A36A" stroke-width="1.2" stroke-linecap="round"></path>
+        </svg>
         <div class="tl-name">22ND NOVEMBER</div>
         <div class="tl-date">Sunday, from 8:00 a.m.</div>
         <div class="tl-line">Satyanarayana Swamy Vratham</div>
-        <div class="tl-line">Usha’s Aravindam, Neriga, Bangalore – 562125</div>
+        <div class="tl-line">@ Usha’s Aravindam, Neriga, Bangalore – 562125</div>
         <div class="tl-line">Followed by lunch</div>
       </article>
     </div>
@@ -658,6 +622,16 @@
     document.body.classList.add('opened');
     bookCover.classList.add('opening');
     site.classList.add('revealed');
+    var inviteAudio = document.getElementById('inviteAudio');
+    var musicDisc = document.getElementById('musicDisc');
+    if(inviteAudio && inviteAudio.paused){
+      inviteAudio.play().then(function(){
+        if(musicDisc){
+          musicDisc.classList.add('playing');
+          musicDisc.setAttribute('aria-label', 'Pause music');
+        }
+      }).catch(function(){});
+    }
     setTimeout(function(){
       bookCover.classList.add('hidden');
       document.body.style.overflow = '';
@@ -773,14 +747,24 @@
   }, { threshold:0.2 });
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 
-  var sketchFrame = document.getElementById('sketchFrame');
-  var sketchToggle = document.getElementById('sketchToggle');
-  if(sketchFrame && sketchToggle){
-    sketchToggle.addEventListener('click', function(){
-      var colour = sketchFrame.classList.toggle('show-color');
-      sketchToggle.textContent = colour ? 'See the sketch' : 'See the colour';
+  var musicDisc = document.getElementById('musicDisc');
+  var inviteAudio = document.getElementById('inviteAudio');
+  if(musicDisc && inviteAudio){
+    musicDisc.addEventListener('click', function(e){
+      e.stopPropagation();
+      if(inviteAudio.paused){
+        inviteAudio.play().then(function(){ musicDisc.classList.add('playing'); musicDisc.setAttribute('aria-label', 'Pause music'); }).catch(function(){});
+      } else {
+        inviteAudio.pause();
+        musicDisc.classList.remove('playing');
+        musicDisc.setAttribute('aria-label', 'Play music');
+      }
     });
   }
+    function show(){ img.classList.add('is-in'); }
+    if(img.complete && img.naturalWidth) show();
+    else img.addEventListener('load', show);
+  });
 
   var bar = document.getElementById('scrollGold');
   window.addEventListener('scroll', function(){

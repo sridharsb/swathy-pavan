@@ -7,7 +7,7 @@
 <meta name="description" content="Swathy &amp; Pavan invite you to celebrate their wedding on Friday, 20 November 2026.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Swathy &amp; Pavan | Wedding Invitation">
-<meta property="og:description" content="Together with their families, Swathy &amp; Pavan request the pleasure of your company on 20 November 2026.">
+<meta property="og:description" content="Together with our families, Swathy &amp; Pavan request the pleasure of your company on 20 November 2026.">
 <meta property="og:site_name" content="Swathy &amp; Pavan Wedding">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,22 +183,17 @@
   @keyframes floatY{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(6px);} }
   .hero-tap svg{ width:15px; height:15px; }
 
-  .portrait-plate{ padding:32px 22px 0; }
-  .sketch-frame{ position:relative; margin:0; padding:10px; background:#fffaf6; border:1px solid rgba(185,149,102,0.6); }
-  .sketch-stack{ position:relative; overflow:hidden; background:#f4ece4; }
-  .sketch-stack .sketch-color{ display:block; width:100%; height:64vh; max-height:540px; object-fit:cover; object-position:center 8%; }
-  .sketch-line{ position:absolute; inset:0; background:#f6efe6; transition:opacity 0.8s ease; }
-  .sketch-line img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 8%; }
-  .sketch-gray{ filter:grayscale(1) contrast(1.2) brightness(1.05); }
-  .sketch-dodge{ filter:grayscale(1) invert(1) blur(1.6px) contrast(1.4); mix-blend-mode:color-dodge; }
-  .sketch-line::after{ content:""; position:absolute; inset:0; background:#f3e2d2; mix-blend-mode:multiply; pointer-events:none; }
-  .sketch-frame.show-color .sketch-line{ opacity:0; }
-  .sketch-toggle{ display:block; margin:14px auto 0; min-height:44px; padding:10px 18px; border:1px solid rgba(185,149,102,0.85); border-radius:999px; background:#fffaf6; color:#7a4a52; font-family:'Cinzel', serif; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; }
+  .portrait-plate{ padding:28px 22px 0; }
+  .portrait-frame{ margin:0; padding:8px 8px 0; background:#fffaf6; border:1px solid rgba(185,149,102,0.55); border-bottom:0; overflow:hidden; }
+  .portrait-frame img{ display:block; width:100%; height:auto; max-height:68vh; object-fit:cover; object-position:center bottom; opacity:0; transform:translateY(16px); }
+  .portrait-frame img.is-in{ animation:photoIn 0.9s ease forwards; }
+  @keyframes photoIn{ to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){ .portrait-frame img{ opacity:1; transform:none; animation:none; } }
   .closing{ padding:36px 22px 8px; }
   .closing figure{ margin:0; padding:8px; background:#fffaf6; border:1px solid rgba(185,149,102,0.55); }
   .closing-photo{ overflow:hidden; }
   .closing img{ display:block; width:100%; height:70vh; max-height:620px; object-fit:cover; object-position:center 32%; }
-  .savedate{ padding:36px 30px 56px; text-align:center; }
+  .savedate{ padding:10px 30px 56px; text-align:center; }
   .date-pair{ display:flex; align-items:flex-start; justify-content:center; gap:18px; }
   .savedate .big-date{
     font-family:'Cormorant Garamond', serif;
@@ -259,6 +254,7 @@
   .tl-item{ position:relative; padding-bottom:38px; text-align:left; }
   .tl-item:last-child{ padding-bottom:0; }
   .tl-dot{ position:absolute; left:-26px; top:4px; width:11px; height:11px; border-radius:50%; background:var(--ivory); border:2px solid var(--gold); }
+  .tl-icon{ width:28px; height:28px; margin-bottom:8px; display:block; }
   .tl-name{ font-family:'Cinzel', serif; font-size:14px; letter-spacing:0.08em; color:var(--rose-deep); margin-bottom:6px; }
   .tl-date{ font-family:'Cormorant Garamond', serif; font-size:16px; color:var(--ink); font-weight:600; }
   .tl-time{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14.5px; color:var(--ink-soft); margin-top:2px; }
@@ -270,11 +266,16 @@
   .venue-btn{ display:inline-flex; align-items:center; justify-content:center; min-height:48px; margin-top:18px; background:transparent; color:var(--rose-deep); font-family:'Cinzel', serif; font-size:11px; letter-spacing:0.16em; padding:12px 26px; border:1px solid var(--gold); }
   .hero-names,.tl-line,.venue-name,.venue-addr,.savedate p,.blessing{overflow-wrap:break-word;}
   .footer-note{padding-bottom:calc(40px + env(safe-area-inset-bottom));}
+  .music-disc{ position:fixed; top:max(12px, env(safe-area-inset-top)); right:max(12px, calc(50vw - 248px)); z-index:600; width:46px; height:46px; border-radius:50%; border:1.5px solid #e4cfa8; box-shadow:0 8px 18px rgba(74,59,53,0.22), inset 0 0 0 5px #7a4a52, inset 0 0 0 6px #c6a36a; background:radial-gradient(circle at 50% 50%, #f6ebd7 0 5px, #c6a36a 6px 7px, transparent 8px), repeating-radial-gradient(circle at 50% 50%, #5c3d42 0 1px, #7a4a52 2px 3px); }
+  .music-disc.playing{ animation:spinDisc 4.8s linear infinite; }
+  @keyframes spinDisc{ to{ transform:rotate(360deg); } }
   @media (max-width:430px){
     .hero-names{font-size:clamp(36px, 11vw, 46px);}
     .hero-content{padding:16px 18px 8px;}
     .hero-date .d{letter-spacing:0.06em; font-size:14px;}
-    .savedate{padding:48px 18px 36px;}
+    .music-disc{top:max(10px, env(safe-area-inset-top)); right:max(10px, env(safe-area-inset-right)); width:44px; height:44px;}
+    .portrait-frame img{max-height:62vh; object-position:center bottom;}
+    .savedate{padding:8px 18px 36px;}
     .events-section,.venue-section,.families-section{padding-left:16px; padding-right:16px;}
     .timeline{padding-left:18px;}
     .tl-name{letter-spacing:0.04em;}
@@ -294,6 +295,8 @@
 </style>
 </head>
 <body>
+<button class="music-disc" id="musicDisc" type="button" aria-label="Play music"></button>
+<audio id="inviteAudio" src="audio/song.mp3" preload="metadata" loop></audio>
 <div class="book-cover" id="bookCover" role="button" tabindex="0" aria-label="Tap anywhere to open the invitation">
   <div class="cover-wash"></div>
   <div class="cover-scrim"></div>
@@ -330,7 +333,7 @@
     <div class="hero-scrim"></div>
     <div class="hero-crest"><span>S&amp;P</span></div>
     <div class="hero-content">
-      <div class="hero-together">Together with their families</div>
+      <div class="hero-together">Together with our families</div>
       <h1 class="hero-names">
         Swathy
         <span class="hero-amp">&amp;</span>
@@ -349,16 +352,9 @@
   </section>
 
   <section class="portrait-plate reveal" aria-label="Swathy and Pavan">
-    <figure class="sketch-frame" id="sketchFrame">
-      <div class="sketch-stack">
-        <img class="sketch-color" src="photos/portrait.jpg" alt="Swathy and Pavan in a formal portrait">
-        <div class="sketch-line">
-          <img class="sketch-gray" src="photos/portrait.jpg" alt="">
-          <img class="sketch-dodge" src="photos/portrait.jpg" alt="">
-        </div>
-      </div>
+    <figure class="portrait-frame">
+      <img src="photos/couple.png" alt="Swathy and Pavan looking down together">
     </figure>
-    <button type="button" class="sketch-toggle" id="sketchToggle">See the colour</button>
   </section>
 
   <section class="savedate reveal">
@@ -424,10 +420,14 @@
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
+        <svg class="tl-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <circle cx="14" cy="14" r="4" stroke="#8C6A3D" stroke-width="1.2"></circle>
+          <path d="M14 4v3M14 21v3M4 14h3M21 14h3M6.8 6.8l2 2M19.2 19.2l2 2M21.2 6.8l-2 2M8.8 19.2l-2 2" stroke="#C6A36A" stroke-width="1.2" stroke-linecap="round"></path>
+        </svg>
         <div class="tl-name">22ND NOVEMBER</div>
         <div class="tl-date">Sunday, from 8:00 a.m.</div>
         <div class="tl-line">Satyanarayana Swamy Vratham</div>
-        <div class="tl-line">Usha’s Aravindam, Neriga, Bangalore – 562125</div>
+        <div class="tl-line">@ Usha’s Aravindam, Neriga, Bangalore – 562125</div>
         <div class="tl-line">Followed by lunch</div>
       </div>
     </div>
@@ -461,6 +461,13 @@
     bookOpened = true;
     bookCover.classList.add('open');
     bookCover.classList.add('zooming');
+    var inviteAudio = document.getElementById('inviteAudio');
+    var musicDisc = document.getElementById('musicDisc');
+    if(inviteAudio && inviteAudio.paused){
+      inviteAudio.play().then(function(){
+        if(musicDisc){ musicDisc.classList.add('playing'); musicDisc.setAttribute('aria-label', 'Pause music'); }
+      }).catch(function(){});
+    }
     setTimeout(function(){
       bookCover.classList.add('hidden');
       document.body.style.overflow = '';
@@ -562,14 +569,26 @@
   }, {threshold:0.15});
   reveals.forEach(function(el){ io.observe(el); });
 
-  var sketchFrame = document.getElementById('sketchFrame');
-  var sketchToggle = document.getElementById('sketchToggle');
-  if(sketchFrame && sketchToggle){
-    sketchToggle.addEventListener('click', function(){
-      var colour = sketchFrame.classList.toggle('show-color');
-      sketchToggle.textContent = colour ? 'See the sketch' : 'See the colour';
+  var musicDisc = document.getElementById('musicDisc');
+  var inviteAudio = document.getElementById('inviteAudio');
+  if(musicDisc && inviteAudio){
+    musicDisc.addEventListener('click', function(e){
+      e.stopPropagation();
+      if(inviteAudio.paused){
+        inviteAudio.play().then(function(){ musicDisc.classList.add('playing'); musicDisc.setAttribute('aria-label', 'Pause music'); }).catch(function(){});
+      } else {
+        inviteAudio.pause();
+        musicDisc.classList.remove('playing');
+        musicDisc.setAttribute('aria-label', 'Play music');
+      }
     });
   }
+
+  document.querySelectorAll('.portrait-frame img').forEach(function(img){
+    function show(){ img.classList.add('is-in'); }
+    if(img.complete && img.naturalWidth) show();
+    else img.addEventListener('load', show);
+  });
 </script>
 </body>
 </html>
